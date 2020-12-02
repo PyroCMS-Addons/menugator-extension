@@ -1,5 +1,5 @@
 # Menugator Extension
-This menugator extension provides for PyroCMS 3.8.
+This menugator extension for PyroCMS 3.8.
 
 Menugator does not replace the Navigation Module, it extends the current functionality, if you uninstall Menugator, you will not lose your menus.
 
@@ -14,10 +14,10 @@ This extension also provides an additional plugin to get the list of grouped men
 
 
 ### Menu Group Plugin
-In the admin section, there is a 'Show' button that will show you a quick start integration code so you can quickly intyegarte the mnenus onto your theme.
+In the admin section, there is a 'Show' button that will show you a quick start integration code so you can quickly integrate the menus onto your site theme.
 
-The below plugin is the ebst way to describe what this can do for your PyroCMS installation.
-You could have 4 or 5 different menus for the footer, if you groups them you can display them easily like so;
+The below plugin is the best way to describe what this can do for your PyroCMS installation.
+You could have 4 or 5 different menus for the footer. Now you can group them and display them easily like so;
 ```
     {% for menu in menu_group('footer') %}
             <h5>{{ menu.name }}</h5>
