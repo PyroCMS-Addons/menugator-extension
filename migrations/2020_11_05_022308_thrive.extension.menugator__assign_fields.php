@@ -53,20 +53,20 @@ class ThriveExtensionMenugatorAssignFields extends Migration
 
                 ],
                 "separator"     => ":",
-                "default_value" => null,
+                "default_value" => 'default',
                 "button_type"   => "info",
                 "handler"       => "options",
                 "mode"          => "dropdown",
             ]
         ],
-        "menu_image" => [
-            "type"   => "anomaly.field_type.image",
-            "config" => [
-                "folders"       => null,
-                "aspect_ratio"  => null,
-                "min_height"    => null
-            ]
-        ]
+        // "menu_image" => [
+        //     "type"   => "anomaly.field_type.image",
+        //     "config" => [
+        //         "folders"       => null,
+        //         "aspect_ratio"  => null,
+        //         "min_height"    => null
+        //     ]
+        // ]
     ];
 
 
@@ -78,6 +78,6 @@ class ThriveExtensionMenugatorAssignFields extends Migration
      */
     protected $assignments = [
         'menu_group',
-        'menu_image',
+        // 'menu_image',
     ];
 }

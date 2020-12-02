@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <button class="close" data-dismiss="modal">
+        <span>&times;</span>
+    </button>
+    <h4 class="modal-title">Integration Code:</h4>
+</div>
+
+<div class="modal-body" style="overflow:overflow-y">
+
+<h5>Using Shorthand</h5>       
+<pre>
+    {% verbatim %}{{ menu('{% endverbatim %}{{ menu.slug }}{% verbatim %}')|raw }}{% endverbatim %}
+</pre>
+
+ <h5>Using Attributes</h5>
+<pre>
+{% verbatim %}
+    {{ menu('{% endverbatim %}{{ menu.slug }}{% verbatim %}')
+        .linkAttributesDropdown({'data-toggle': 'dropdown'})
+        .listClass('nav navbar-nav navbar-right')
+        .childListClass('dropdown-menu')
+        .render()|raw }}
+    {% endverbatim %}
+</pre>     
+<h5>Using Menu Groups</h5>
+<pre>
+    {% verbatim %}
+    {% for menu in menu_group('{% endverbatim %}{{ menu_group }}{% verbatim %}') %}
+            {{ menu.name }}
+            {% for link in links(menu.slug).get() %}
+                &lt;a href="{{ link.url }}" target="{{ link.target.key }}"&gt;{{ link.title }}&lt;/a&gt;
+            {% endfor %}
+    {% endfor %}
+    {% endverbatim %}
+</pre>
+
+</div>

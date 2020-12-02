@@ -8,16 +8,16 @@ use Anomaly\Streams\Platform\Http\Controller\AdminController;
 /**
  * Class MenusController
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link          http://thrivehub.com.au/
+ * @author        ThriveHub. <support@thrivehub.com.au>
+ * @author        Sam McDonald <sam@thrivehub.com.au>
  */
 class MenusController extends AdminController
 {
     /**
      * Return an index of existing navigation menus.
      *
-     * @param  MenuTableBuilder                           $table
+     * @param  MenuTableBuilder  $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(MenuTableBuilder $table)
@@ -41,6 +41,24 @@ class MenusController extends AdminController
                 ]
             ]
         );
+        $table->setButtons(
+            [
+                'show' => [
+                    'icon'        => 'wrench',
+                    'text'        => 'thrive.extension.menugator::button.show',
+                    'type'        => 'success',
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal'
+                ],
+                'edit',
+                [
+                    'type' => 'info',
+                    'icon' => 'link',
+                    'text' => 'module::button.links',
+                    'href' => 'admin/navigation/links/{entry.slug}',
+                ],
+            ]
+        );
 
         $authorizer = app(\Anomaly\Streams\Platform\Support\Authorizer::class);
 
@@ -49,6 +67,17 @@ class MenusController extends AdminController
         }
         
         return $table->render();
+    }
+
+    public function codeShow(MenuRepositoryInterface $menus, $id)
+    {
+        $menu = $menus->find($id);
+
+        return view('thrive.extension.menugator::code')->with(
+            [
+                'menu_group' => $menu->menu_group,
+                'menu'  => $menu,
+            ]);
     }
 
    

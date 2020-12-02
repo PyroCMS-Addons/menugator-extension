@@ -11,7 +11,9 @@ class MenugatorExtensionServiceProvider extends AddonServiceProvider
      *
      * @type array|null
      */
-    protected $plugins = [];
+    protected $plugins = [
+        MenugatorExtensionPlugin::class
+    ];
 
     /**
      * The addon Artisan commands.
@@ -40,7 +42,8 @@ class MenugatorExtensionServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $routes = [
-        'admin/navigation'  => 'Thrive\MenugatorExtension\Http\Controller\Admin\MenusController@index',
+        'admin/navigation'                  => 'Thrive\MenugatorExtension\Http\Controller\Admin\MenusController@index',
+        'admin/navigation/show/{form}'      => 'Thrive\MenugatorExtension\Http\Controller\Admin\MenusController@codeShow',
     ];
 
     /**
